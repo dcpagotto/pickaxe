@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { oneTool } from "./tools/one.tool";
 import { twoTool } from "./tools/two.tool";
@@ -34,7 +34,7 @@ const PromptChainingAgentOutput = z.object({
   result: z.string(),
 });
 
-export const promptChainingAgent = pickaxe.agent({
+export const promptChainingAgent = icepick.agent({
   name: "prompt-chaining-agent",
   executionTimeout: "1m",
   inputSchema: PromptChainingAgentInput,

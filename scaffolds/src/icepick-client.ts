@@ -1,6 +1,6 @@
-import { Pickaxe } from "@hatchet-dev/pickaxe/src";
+import { Icepick } from "@hatchet-dev/icepick/src";
 import { openai } from "@ai-sdk/openai";
 
-export const pickaxe = Pickaxe.init({
+export const icepick = Icepick.init({
     defaultLanguageModel: openai("gpt-4o-mini"),
 });

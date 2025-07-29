@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
 
-export const summary = pickaxe.tool({
+export const summary = icepick.tool({
   name: "summary",
   description: "Summarize and format geographic information using AI",
   inputSchema: z.object({

@@ -53,7 +53,7 @@ describe("CLI working directory functionality", () => {
     // Create a fresh command instance for each test
     program = new Command();
     program
-      .name("pickaxe")
+      .name("icepick")
       .description("CLI tool for managing components, agents, and tools")
       .option(
         "-C, --cwd <path>",
@@ -133,7 +133,7 @@ describe("CLI working directory functionality", () => {
 
           if (isSensitive) {
             console.warn(
-              `⚠️  Warning: You are about to run pickaxe in a system directory: ${resolvedPath}`
+              `⚠️  Warning: You are about to run icepick in a system directory: ${resolvedPath}`
             );
             console.warn(
               `   This could create project files in a system location.`
@@ -143,7 +143,7 @@ describe("CLI working directory functionality", () => {
             );
           } else if (isHomeDirectory) {
             console.warn(
-              `⚠️  Warning: You are about to run pickaxe in your home directory: ${resolvedPath}`
+              `⚠️  Warning: You are about to run icepick in your home directory: ${resolvedPath}`
             );
             console.warn(
               `   This will create project files directly in your home directory.`
@@ -186,7 +186,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "create",
@@ -213,7 +213,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         relativeDir,
         "create",
@@ -235,7 +235,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         homeDir,
         "create",
@@ -255,7 +255,7 @@ describe("CLI working directory functionality", () => {
       try {
         await program.parseAsync([
           "node",
-          "pickaxe",
+          "icepick",
           "-C",
           nonExistentDir,
           "create",
@@ -282,7 +282,7 @@ describe("CLI working directory functionality", () => {
       try {
         await program.parseAsync([
           "node",
-          "pickaxe",
+          "icepick",
           "-C",
           filePath,
           "create",
@@ -315,7 +315,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "create",
@@ -336,7 +336,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "add",
@@ -360,7 +360,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "add",
@@ -380,7 +380,7 @@ describe("CLI working directory functionality", () => {
       const testDir = "/test/mcp/directory";
       mockedFs.realpathSync.mockReturnValue(testDir);
 
-      await program.parseAsync(["node", "pickaxe", "-C", testDir, "mcp"]);
+      await program.parseAsync(["node", "icepick", "-C", testDir, "mcp"]);
 
       expect(mockProcessChdir).toHaveBeenCalledWith(path.resolve(testDir));
       expect(mockedStartMcp).toHaveBeenCalledWith({}, expect.any(Object));
@@ -389,7 +389,7 @@ describe("CLI working directory functionality", () => {
 
   describe("command execution without working directory flag", () => {
     it("should execute commands normally when -C flag is not provided", async () => {
-      await program.parseAsync(["node", "pickaxe", "create", "test-project"]);
+      await program.parseAsync(["node", "icepick", "create", "test-project"]);
 
       expect(mockProcessChdir).not.toHaveBeenCalled();
       expect(mockedCreate).toHaveBeenCalledWith(
@@ -400,7 +400,7 @@ describe("CLI working directory functionality", () => {
     });
 
     it("should execute add agent command normally without -C flag", async () => {
-      await program.parseAsync(["node", "pickaxe", "add", "agent", "my-agent"]);
+      await program.parseAsync(["node", "icepick", "add", "agent", "my-agent"]);
 
       expect(mockProcessChdir).not.toHaveBeenCalled();
       expect(mockedAddAgent).toHaveBeenCalledWith(
@@ -426,7 +426,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "create",
@@ -447,7 +447,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "--cwd",
         testDir,
         "create",
@@ -468,7 +468,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         `--cwd=${testDir}`,
         "create",
         "project",
@@ -498,7 +498,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "add",
@@ -520,7 +520,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         testDir,
         "add",
@@ -567,7 +567,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         homeDir,
         "create",
@@ -575,7 +575,7 @@ describe("CLI working directory functionality", () => {
       ]);
 
       expect(mockConsoleWarn).toHaveBeenCalledWith(
-        `⚠️  Warning: You are about to run pickaxe in your home directory: ${homeDir}`
+        `⚠️  Warning: You are about to run icepick in your home directory: ${homeDir}`
       );
       expect(mockConsoleWarn).toHaveBeenCalledWith(
         "   This will create project files directly in your home directory."
@@ -592,7 +592,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         systemDir,
         "create",
@@ -600,7 +600,7 @@ describe("CLI working directory functionality", () => {
       ]);
 
       expect(mockConsoleWarn).toHaveBeenCalledWith(
-        `⚠️  Warning: You are about to run pickaxe in a system directory: ${systemDir}`
+        `⚠️  Warning: You are about to run icepick in a system directory: ${systemDir}`
       );
       expect(mockConsoleWarn).toHaveBeenCalledWith(
         "   This could create project files in a system location."
@@ -617,7 +617,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         etcDir,
         "create",
@@ -625,7 +625,7 @@ describe("CLI working directory functionality", () => {
       ]);
 
       expect(mockConsoleWarn).toHaveBeenCalledWith(
-        `⚠️  Warning: You are about to run pickaxe in a system directory: ${etcDir}`
+        `⚠️  Warning: You are about to run icepick in a system directory: ${etcDir}`
       );
     });
 
@@ -636,7 +636,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         workspaceDir,
         "create",
@@ -654,7 +654,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         symlinkPath,
         "create",
@@ -662,7 +662,7 @@ describe("CLI working directory functionality", () => {
       ]);
 
       expect(mockConsoleWarn).toHaveBeenCalledWith(
-        `⚠️  Warning: You are about to run pickaxe in a system directory: ${realSystemPath}`
+        `⚠️  Warning: You are about to run icepick in a system directory: ${realSystemPath}`
       );
     });
 
@@ -678,7 +678,7 @@ describe("CLI working directory functionality", () => {
 
       await program.parseAsync([
         "node",
-        "pickaxe",
+        "icepick",
         "-C",
         systemDir,
         "create",

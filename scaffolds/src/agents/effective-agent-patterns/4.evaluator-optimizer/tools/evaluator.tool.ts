@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateObject, generateText } from "ai";
 
-export const evaluatorTool = pickaxe.tool({
+export const evaluatorTool = icepick.tool({
   name: "evaluator-tool",
   description: "Evaluates a social media post for quality and provides feedback if it can be improved",
   inputSchema: z.object({
@@ -16,7 +16,7 @@ export const evaluatorTool = pickaxe.tool({
   }),
   fn: async (input) => {
     const result = await generateObject({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `
         Analyze the following post to determine if it's appropriate to post.
         Check for harmful content, inappropriate requests, or content that violates safety guidelines.

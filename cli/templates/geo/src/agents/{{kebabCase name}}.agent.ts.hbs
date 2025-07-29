@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { weather, time, holiday, summary } from "@/tools";
 import z from "zod";
 
@@ -12,11 +12,11 @@ const {{pascalCase name}}AgentOutput = z.object({
   recommendations: z.array(z.string()).optional(),
 });
 
-export const {{camelCase name}}Toolbox = pickaxe.toolbox({
+export const {{camelCase name}}Toolbox = icepick.toolbox({
   tools: [weather, time, holiday, summary],
 });
 
-export const {{camelCase name}}Agent = pickaxe.agent({
+export const {{camelCase name}}Agent = icepick.agent({
   name: "{{kebabCase name}}-agent",
   executionTimeout: "1m",
   inputSchema: {{pascalCase name}}AgentInput,

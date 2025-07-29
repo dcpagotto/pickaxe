@@ -79,7 +79,7 @@ async function getProjectConfig(initialName?: string): Promise<ProjectConfig> {
       type: "text" as const,
       name: "description",
       message: "Project description:",
-      initial: (prev: string) => `An example Pickaxe project named ${prev}`,
+      initial: (prev: string) => `An example Icepick project named ${prev}`,
     },
     {
       type: "text" as const,

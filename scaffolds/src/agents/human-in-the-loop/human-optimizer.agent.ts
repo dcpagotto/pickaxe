@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generatorTool } from "./tools/generator.tool";
 import { sendToSlackTool } from "./tools/send-to-slack.tool";
@@ -50,7 +50,7 @@ type FeedbackEvent = {
   feedback?: string;
 }
 
-export const evaluatorOptimizerAgent = pickaxe.agent({
+export const evaluatorOptimizerAgent = icepick.agent({
   name: "human-optimizer-agent",
   executionTimeout: "2m",
   inputSchema: EvaluatorOptimizerAgentInput,
@@ -93,7 +93,7 @@ export const evaluatorOptimizerAgent = pickaxe.agent({
       });
 
       // dispatch an event on an approve or reject with feedback button
-      // pickaxe.events.push<FeedbackEvent>("feedback:create", {
+      // icepick.events.push<FeedbackEvent>("feedback:create", {
       //   messageId: slackResult.messageId,
       //   approved: false,
       // })

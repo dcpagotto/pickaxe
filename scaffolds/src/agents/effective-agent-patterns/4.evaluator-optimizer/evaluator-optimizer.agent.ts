@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { evaluatorTool } from "./tools/evaluator.tool";
 import { generatorTool } from "./tools/generator.tool";
@@ -41,7 +41,7 @@ const EvaluatorOptimizerAgentOutput = z.object({
   iterations: z.number(),
 });
 
-export const evaluatorOptimizerAgent = pickaxe.agent({
+export const evaluatorOptimizerAgent = icepick.agent({
   name: "evaluator-optimizer-agent",
   executionTimeout: "2m",
   inputSchema: EvaluatorOptimizerAgentInput,

@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 // TODO: Import your tools here
 // Example: import { myTool } from "@/tools/my-tool";
@@ -13,14 +13,14 @@ const {{pascalCase name}}AgentOutput = z.object({
   message: z.string(),
 });
 
-export const {{camelCase name}}Toolbox = pickaxe.toolbox({
+export const {{camelCase name}}Toolbox = icepick.toolbox({
   tools: [
     // TODO: Add your tools here
     // Example: myTool,
   ],
 });
 
-export const {{camelCase name}}Agent = pickaxe.agent({
+export const {{camelCase name}}Agent = icepick.agent({
   name: "{{kebabCase name}}-agent",
   executionTimeout: "1m",
   inputSchema: {{pascalCase name}}AgentInput,

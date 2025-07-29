@@ -31,7 +31,7 @@ interface StartOptions extends CreateWorkerOpts {
   register?: Array<BaseOrRegisterable> | Array<Array<BaseOrRegisterable>>;
 }
 
-export class Pickaxe extends Hatchet {
+export class Icepick extends Hatchet {
   defaultLanguageModel: LanguageModelV1;
   private toolboxes: Map<string, Toolbox<any>> = new Map();
   private workflowToFilePath: Map<string, string> = new Map();
@@ -39,7 +39,7 @@ export class Pickaxe extends Hatchet {
   private registry: Map<string, BaseOrRegisterable> = new Map();
 
   static init(config?: Partial<ClientConfig>, options?: HatchetClientOptions, axiosConfig?: AxiosRequestConfig) {
-    return new Pickaxe(config, options, axiosConfig);
+    return new Icepick(config, options, axiosConfig);
   }
 
   constructor(config?: Partial<ClientConfig>, options?: HatchetClientOptions, axiosConfig?: AxiosRequestConfig) {
@@ -67,7 +67,7 @@ export class Pickaxe extends Hatchet {
     });
 
     if (workflows.length === 0) {
-      this.admin.logger.error("Nothing to register, create an agent or tool using the pickaxe.agent or pickaxe.tool methods");
+      this.admin.logger.error("Nothing to register, create an agent or tool using the icepick.agent or icepick.tool methods");
       return;
     }
 
@@ -86,7 +86,7 @@ export class Pickaxe extends Hatchet {
       this.admin.logger.green(`> ${displayName}`);
     }
 
-    const worker = await this.worker(options.name || 'pickaxe-worker', {
+    const worker = await this.worker(options.name || 'icepick-worker', {
       ...rest,
       workflows: dedupedWorkflows,
     });

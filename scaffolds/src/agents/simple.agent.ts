@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { weather } from "../tools/weather.tool";
 import { holiday, time } from "../tools/time.tool";
 import z from "zod";
@@ -12,11 +12,11 @@ const SimpleAgentOutput = z.object({
   message: z.string(),
 });
 
-export const simpleToolbox = pickaxe.toolbox({
+export const simpleToolbox = icepick.toolbox({
   tools: [weather, time, holiday],
 });
 
-export const simpleAgent = pickaxe.agent({
+export const simpleAgent = icepick.agent({
   name: "simple-agent",
   executionTimeout: "1m",
   inputSchema: SimpleAgentInput,

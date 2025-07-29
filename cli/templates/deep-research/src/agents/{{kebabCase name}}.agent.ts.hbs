@@ -10,7 +10,7 @@ import {
   JudgeFactsOutput 
 } from "@/tools";
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const MessageSchema = z.object({
   message: z.string(),
@@ -48,7 +48,7 @@ type Fact = {
   sourceIndex: number;
 };
 
-export const {{camelCase name}}Agent = pickaxe.agent({
+export const {{camelCase name}}Agent = icepick.agent({
   name: "{{kebabCase name}}-agent",
   description: "A tool that performs deep research on a given query",
   inputSchema: MessageSchema,

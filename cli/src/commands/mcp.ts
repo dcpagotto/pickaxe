@@ -2,8 +2,8 @@
 export async function startMcp() {
   try {
     // Import the server class and run it directly
-    const { PickaxeMcpServer } = require('../mcp/server');
-    const server = new PickaxeMcpServer();
+    const { IcepickMcpServer } = require('../mcp/server');
+    const server = new IcepickMcpServer();
     await server.run();
   } catch (error) {
     console.error('❌ Failed to start MCP server:', error instanceof Error ? error.message : 'Unknown error');

@@ -1,10 +1,10 @@
-import { Pickaxe } from "@hatchet-dev/pickaxe";
+import { Icepick } from "@hatchet-dev/icepick";
 import { openai } from "@ai-sdk/openai";
 import * as dotenv from "dotenv";
 
 // Load environment variables from .env file
 dotenv.config();
 
-export const pickaxe = Pickaxe.init({
+export const icepick = Icepick.init({
     defaultLanguageModel: openai("gpt-4o-mini"),
 });

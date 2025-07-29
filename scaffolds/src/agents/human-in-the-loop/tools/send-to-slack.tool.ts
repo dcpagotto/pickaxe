@@ -1,7 +1,7 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 
-export const sendToSlackTool = pickaxe.tool({
+export const sendToSlackTool = icepick.tool({
   name: "send-to-slack-tool",
   description: "Sends a message to Slack",
   inputSchema: z.object({

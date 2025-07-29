@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { salesTool, supportTool } from "./tools/calls.tool";
 
@@ -33,11 +33,11 @@ const RoutingAgentOutput = z.object({
   canHelp: z.boolean(),
 });
 
-export const routingToolbox = pickaxe.toolbox({
+export const routingToolbox = icepick.toolbox({
     tools: [supportTool, salesTool],
 });
 
-export const routingAgent = pickaxe.agent({
+export const routingAgent = icepick.agent({
   name: "routing-agent",
   executionTimeout: "1m",
   inputSchema: RoutingAgentInput,

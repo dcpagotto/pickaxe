@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 interface HolidayResponse {
   date: string;
@@ -13,7 +13,7 @@ interface HolidayResponse {
   types: string[];
 }
 
-export const holiday = pickaxe.tool({
+export const holiday = icepick.tool({
   name: "holiday",
   description: "Get the current holiday in a given country",
   inputSchema: z.object({

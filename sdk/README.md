@@ -1,3 +1,3 @@
-## @hatchet-dev/pickaxe
+## @hatchet-dev/icepick
 
-Contains the SDK for Pickaxe.
+Contains the SDK for Icepick.

@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { appropriatenessCheckTool } from "./tools/appropriateness.tool";
 import { mainContentTool } from "./tools/main-content.tool";
@@ -38,7 +38,7 @@ const SectioningAgentOutput = z.object({
   isAppropriate: z.boolean(),
 });
 
-export const sectioningAgent = pickaxe.agent({
+export const sectioningAgent = icepick.agent({
   name: "sectioning-agent",
   executionTimeout: "2m",
   inputSchema: SectioningAgentInput,

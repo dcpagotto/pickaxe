@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateText } from "ai";
 
-export const mainContentTool = pickaxe.tool({
+export const mainContentTool = icepick.tool({
   name: "main-content-tool",
   description: "Generates the main content section of a response",
   inputSchema: z.object({
@@ -13,7 +13,7 @@ export const mainContentTool = pickaxe.tool({
   }),
   fn: async (input) => {
     const result = await generateText({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `
         Respond to the following user message.
         This should be the detailed, substantive part of the response that directly addresses the user's query.

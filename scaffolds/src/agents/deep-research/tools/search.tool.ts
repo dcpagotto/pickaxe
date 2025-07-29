@@ -1,7 +1,7 @@
 
 import { z } from "zod";
 import { generateText as aiGenerateText } from "ai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { openai } from "@ai-sdk/openai";
 
 export const SearchInputSchema = z.object({
@@ -15,7 +15,7 @@ const SearchOutputSchema = z.object({
   })),
 });
 
-export const search = pickaxe.tool({
+export const search = icepick.tool({
   name: "search",
   description: "Search the web for information about a topic",
   inputSchema: SearchInputSchema,
