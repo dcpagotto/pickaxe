@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { z } from "zod";
 
 const WeatherInput = z.object({
@@ -9,7 +9,7 @@ const WeatherOutput = z.object({
   weather: z.string()
 });
 
-export const weather = pickaxe.tool({
+export const weather = icepick.tool({
   name: "weather",
   description: "Get the weather in a given city",
   inputSchema: WeatherInput,

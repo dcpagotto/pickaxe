@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateText } from "ai";
 
-export const oneTool = pickaxe.tool({
+export const oneTool = icepick.tool({
   name: "one-tool",
   description: "A tool that returns 1",
   inputSchema: z.object({
@@ -15,7 +15,7 @@ export const oneTool = pickaxe.tool({
 
     // Make an LLM call to get the oneOutput
     const oneOutput = await generateText({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `Is the following text about an animal? If so, return "yes", otherwise return "no": ${input.message}`,
     });
 

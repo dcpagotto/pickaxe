@@ -1,11 +1,11 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 
 const CommonAgentResponseSchema = z.object({
   message: z.string(),
 });
 
-const supportAgent = pickaxe.agent({
+const supportAgent = icepick.agent({
   name: "support-agent",
   executionTimeout: "1m",
   inputSchema: z.object({
@@ -18,7 +18,7 @@ const supportAgent = pickaxe.agent({
   },
 });
 
-const salesAgent = pickaxe.agent({
+const salesAgent = icepick.agent({
   name: "sales-agent",
   description: "A sales agent that sells the product to the user",
   executionTimeout: "1m",
@@ -32,12 +32,12 @@ const salesAgent = pickaxe.agent({
 });
 
 
-export const multiAgentToolbox = pickaxe.toolbox({
+export const multiAgentToolbox = icepick.toolbox({
   tools: [supportAgent, salesAgent],
 });
 
 
-export const rootAgent = pickaxe.agent({
+export const rootAgent = icepick.agent({
   name: "root-agent",
   executionTimeout: "1m",
   inputSchema: z.object({

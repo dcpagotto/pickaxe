@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateObject } from "ai";
 
-export const safetyVoterTool = pickaxe.tool({
+export const safetyVoterTool = icepick.tool({
   name: "safety-voter-tool",
   description: "A specialized voting agent that evaluates the safety and appropriateness of chat responses",
   inputSchema: z.object({
@@ -16,7 +16,7 @@ export const safetyVoterTool = pickaxe.tool({
   fn: async (input) => {
     // Use LLM to evaluate safety of the response
     const evaluation = await generateObject({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `You are a safety evaluator. Analyze this conversation:
 
 User Message: "${input.message}"

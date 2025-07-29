@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { generateText } from "ai";
 import z from "zod";
 
-export const twoTool = pickaxe.tool({
+export const twoTool = icepick.tool({
   name: "two-tool",
   description: "Translates text into spanish",
   inputSchema: z.object({
@@ -15,7 +15,7 @@ export const twoTool = pickaxe.tool({
 
     // Make an LLM call to get the twoOutput
     const twoOutput = await generateText({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `Translate the following text into spanish: ${input.message}`,
     });
 

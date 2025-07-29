@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateObject } from "ai";
 
-export const accuracyVoterTool = pickaxe.tool({
+export const accuracyVoterTool = icepick.tool({
   name: "accuracy-voter-tool",
   description: "A specialized voting agent that evaluates the accuracy and reasoning quality of chat responses",
   inputSchema: z.object({
@@ -16,7 +16,7 @@ export const accuracyVoterTool = pickaxe.tool({
   fn: async (input) => {
     // Use LLM to evaluate accuracy of the response
     const evaluation = await generateObject({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `You are an accuracy evaluator. Analyze this conversation:
 
 User Message: "${input.message}"

@@ -1,5 +1,5 @@
 services:
-  pickaxe-app:
+  icepick-app:
     build:
       context: .
       dockerfile: Dockerfile

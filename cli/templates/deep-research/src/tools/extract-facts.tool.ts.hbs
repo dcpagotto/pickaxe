@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const ExtractFactsInputSchema = z.object({
   source: z.string(),
@@ -24,7 +24,7 @@ const ExtractFactsOutputSchema = z.object({
   facts: z.array(FactSchema),
 });
 
-export const extractFacts = pickaxe.tool({
+export const extractFacts = icepick.tool({
   name: "extract-facts",
   description: "Extract relevant facts from a source that are related to a query",
   inputSchema: ExtractFactsInputSchema,

@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateText, zodSchema } from "ai";
 import { TaskWorkflowDeclaration } from "@hatchet-dev/typescript-sdk";
-import { Pickaxe, Registerable } from "./pickaxe";
+import { Icepick, Registerable } from "./icepick";
 
 export interface ToolDeclaration<
   InputSchema extends z.ZodType,
@@ -98,9 +98,9 @@ export class Toolbox<T extends ReadonlyArray<ToolDeclaration<any, any>>>
    * Creates a new `Toolbox`.
    *
    * @param props  - Toolbox construction options containing the tool declarations.
-   * @param client - The `Pickaxe` client used to register and execute workflows.
+   * @param client - The `Icepick` client used to register and execute workflows.
    */
-  constructor(private props: CreateToolboxOpts<T>, private client: Pickaxe) {
+  constructor(private props: CreateToolboxOpts<T>, private client: Icepick) {
     // Generate a key for this toolbox based on tool names
     this.toolboxKey = Array.from(this.props.tools)
       .map((t) => t.name)
@@ -242,20 +242,20 @@ type PickInputWithToolboxKey = PickInput & {
   toolboxKey: string;
 };
 
-const pickToolFactory = (pickaxe: Pickaxe) =>
-  pickaxe.task({
+const pickToolFactory = (icepick: Icepick) =>
+  icepick.task({
     name: "pick-tool",
     executionTimeout: "5m",
     fn: async (input: PickInputWithToolboxKey) => {
       // Get the toolbox from the client using the key
-      const toolbox = pickaxe._getToolbox(input.toolboxKey);
+      const toolbox = icepick._getToolbox(input.toolboxKey);
       if (!toolbox) {
         throw new Error(`Toolbox not found for key: ${input.toolboxKey}`);
       }
 
       // Use the toolbox's AI-ready toolset
       const { steps } = await generateText({
-        model: pickaxe.defaultLanguageModel,
+        model: icepick.defaultLanguageModel,
         tools: toolbox.toolSetForAI,
         maxSteps: input.maxTools ?? 1,
         prompt: input.prompt,

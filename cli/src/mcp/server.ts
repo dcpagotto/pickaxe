@@ -22,13 +22,13 @@ const CreateToolArgsSchema = z.object({
   name: z.string().describe("Name of the tool to create"),
 });
 
-export class PickaxeMcpServer {
+export class IcepickMcpServer {
   private server: any;
 
   constructor() {
     this.server = new Server(
       {
-        name: "pickaxe-mcp-server",
+        name: "icepick-mcp-server",
         version: "1.0.0",
       },
       {
@@ -50,7 +50,7 @@ export class PickaxeMcpServer {
           {
             name: "scaffold_agent",
             description:
-              "Creates the boilerplate for a new Pickaxe agent with a simple interface that has a name, description, and execute method. Before using this tool, please refer to the planning instructions at: https://pickaxe.hatchet.run/mcp/mcp-instructions.md. If a user is asking to create an agent, you should first read this document, then scaffold tools with the `scaffold_tool` tool, and finally use this tool to create the agent.",
+              "Creates the boilerplate for a new Icepick agent with a simple interface that has a name, description, and execute method. Before using this tool, please refer to the planning instructions at: https://icepick.hatchet.run/mcp/mcp-instructions.md. If a user is asking to create an agent, you should first read this document, then scaffold tools with the `scaffold_tool` tool, and finally use this tool to create the agent.",
             inputSchema: {
               type: "object",
               properties: {
@@ -69,7 +69,7 @@ export class PickaxeMcpServer {
           {
             name: "scaffold_tool",
             description:
-              "Creates the boilerplate for a new Pickaxe tool with a simple interface that has a name and execute method. Before using this tool, please refer to the planning instructions at: https://pickaxe.hatchet.run/mcp/mcp-instructions.md. If a user is asking to create a tool, you should first read this document, then use this tool to scaffold the tool.",
+              "Creates the boilerplate for a new Icepick tool with a simple interface that has a name and execute method. Before using this tool, please refer to the planning instructions at: https://icepick.hatchet.run/mcp/mcp-instructions.md. If a user is asking to create a tool, you should first read this document, then use this tool to scaffold the tool.",
             inputSchema: {
               type: "object",
               properties: {
@@ -193,7 +193,7 @@ export class PickaxeMcpServer {
       content: [
         {
           type: "text",
-          text: "Please refer to the latest agent planning instructions at: https://pickaxe.hatchet.run/mcp/mcp-instructions.md",
+          text: "Please refer to the latest agent planning instructions at: https://icepick.hatchet.run/mcp/mcp-instructions.md",
         },
       ],
     };
@@ -202,7 +202,7 @@ export class PickaxeMcpServer {
   async run() {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.error("Pickaxe MCP server running on stdio");
+    console.error("Icepick MCP server running on stdio");
   }
 }
 

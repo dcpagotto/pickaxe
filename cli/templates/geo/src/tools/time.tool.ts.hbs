@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
-export const time = pickaxe.tool({
+export const time = icepick.tool({
   name: "time",
   description: "Get the current time in a given city or location",
   inputSchema: z.object({

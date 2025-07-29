@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const JudgeFactsInputSchema = z.object({
   query: z.string(),
@@ -16,7 +16,7 @@ const JudgeFactsOutputSchema = z.object({
 
 export type JudgeFactsOutput = z.infer<typeof JudgeFactsOutputSchema>;
 
-export const judgeFacts = pickaxe.tool({
+export const judgeFacts = icepick.tool({
   name: "judge-facts",
   description: "Judge if we have enough facts to comprehensively answer a query",
   inputSchema: JudgeFactsInputSchema,

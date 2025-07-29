@@ -6,7 +6,7 @@ import { judgeResults } from "@/agents/deep-research/tools/judge-results.tool";
 import { extractFacts } from "@/agents/deep-research/tools/extract-facts.tool";
 import { judgeFacts, JudgeFactsOutput } from "@/agents/deep-research/tools/judge-facts.tool";
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const MessageSchema = z.object({
   message: z.string(),
@@ -45,7 +45,7 @@ type Fact = {
   sourceIndex: number;
 };
 
-export const deepResearchAgent = pickaxe.agent({
+export const deepResearchAgent = icepick.agent({
   name: "deep-research-agent",
   description: "A tool that performs deep research on a given query",
   inputSchema: MessageSchema,

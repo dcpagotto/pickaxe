@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateText } from "ai";
 
-export const threeTool = pickaxe.tool({
+export const threeTool = icepick.tool({
   name: "three-tool",
   description: "A tool that makes text into a haiku",
   inputSchema: z.object({
@@ -15,7 +15,7 @@ export const threeTool = pickaxe.tool({
 
     // Make 
     const threeOutput = await generateText({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `Make the following text into a haiku: ${input.twoOutput}`,
     });
 

@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateObject, generateText } from "ai";
 
-export const appropriatenessCheckTool = pickaxe.tool({
+export const appropriatenessCheckTool = icepick.tool({
   name: "appropriateness-check-tool",
   description: "Determines if a message is appropriate and safe to respond to",
   inputSchema: z.object({
@@ -14,7 +14,7 @@ export const appropriatenessCheckTool = pickaxe.tool({
   }),
   fn: async (input) => {
     const result = await generateObject({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `
 Analyze the following message to determine if it's appropriate to respond to.
 Check for harmful content, inappropriate requests, or content that violates safety guidelines.

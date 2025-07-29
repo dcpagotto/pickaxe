@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 export const PlanSearchInputSchema = z.object({
   query: z.string(),
@@ -16,7 +16,7 @@ const PlanSearchOutputSchema = z.object({
 
 export type PlanSearchOutput = z.infer<typeof PlanSearchOutputSchema>;
 
-export const planSearch = pickaxe.tool({
+export const planSearch = icepick.tool({
   name: "plan-search",
   description: "Plan search queries to find information about a topic",
   inputSchema: PlanSearchInputSchema,

@@ -1,6 +1,6 @@
 # Effective Agent Patterns
 
-This directory contains implementations of the effective agent patterns described in [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) blog post, adapted for the Pickaxe framework.
+This directory contains implementations of the effective agent patterns described in [Anthropic's Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) blog post, adapted for the Icepick framework.
 
 ## Overview
 

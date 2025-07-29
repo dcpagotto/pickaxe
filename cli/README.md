@@ -1,3 +1,3 @@
-## @hatchet-dev/pickaxe-cli
+## @hatchet-dev/icepick-cli
 
-Contains the CLI for Pickaxe.
+Contains the CLI for Icepick.

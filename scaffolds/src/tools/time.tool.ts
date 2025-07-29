@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const SimpleInput = z.object({
   message: z.string()
@@ -9,7 +9,7 @@ const SimpleOutput = z.object({
   response: z.string()
 })
 
-export const simple = pickaxe.tool({
+export const simple = icepick.tool({
   name: "simple-tool",
   description: "Scaffold tool ",
   inputSchema: SimpleInput,

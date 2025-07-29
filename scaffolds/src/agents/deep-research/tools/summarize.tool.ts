@@ -1,6 +1,6 @@
 
 import { z } from "zod";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
 
@@ -25,7 +25,7 @@ export const SummarizeOutputSchema = z.object({
   summary: z.string(),
 });
 
-export const summarize = pickaxe.tool({
+export const summarize = icepick.tool({
   name: "summarize",
   description: "Summarize a set of facts",
   inputSchema: SummarizeInputSchema,

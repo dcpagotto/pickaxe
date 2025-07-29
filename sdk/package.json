@@ -1,7 +1,7 @@
 {
-  "name": "@hatchet-dev/pickaxe",
+  "name": "@hatchet-dev/icepick",
   "version": "0.1.9",
-  "description": "Pickaxe SDK for Hatchet",
+  "description": "Icepick SDK for Hatchet",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

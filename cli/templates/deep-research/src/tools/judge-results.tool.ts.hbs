@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const JudgeResultsInputSchema = z.object({
   query: z.string(),
@@ -13,7 +13,7 @@ const JudgeResultsOutputSchema = z.object({
   isComplete: z.boolean(),
 });
 
-export const judgeResults = pickaxe.tool({
+export const judgeResults = icepick.tool({
   name: "judge-results",
   description: "Judge if the result is complete",
   inputSchema: JudgeResultsInputSchema,

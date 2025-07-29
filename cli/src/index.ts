@@ -13,7 +13,7 @@ import { HATCHET_VERSION } from "./version";
 const program = new Command();
 
 program
-  .name("pickaxe")
+  .name("icepick")
   .description("CLI tool for managing components, agents, and tools")
   .version(HATCHET_VERSION)
   .option(
@@ -50,7 +50,7 @@ program
   .command("version")
   .description("Show version information")
   .action(() => {
-    console.log(`Hatchet Pickaxe v${HATCHET_VERSION}`);
+    console.log(`Hatchet Icepick v${HATCHET_VERSION}`);
   });
 
 // Handle working directory change
@@ -99,7 +99,7 @@ program.hook("preAction", (thisCommand) => {
 
       if (isSensitive) {
         console.warn(
-          `⚠️  Warning: You are about to run pickaxe in a system directory: ${resolvedPath}`
+          `⚠️  Warning: You are about to run icepick in a system directory: ${resolvedPath}`
         );
         console.warn(
           `   This could create project files in a system location.`
@@ -109,7 +109,7 @@ program.hook("preAction", (thisCommand) => {
         );
       } else if (isHomeDirectory) {
         console.warn(
-          `⚠️  Warning: You are about to run pickaxe in your home directory: ${resolvedPath}`
+          `⚠️  Warning: You are about to run icepick in your home directory: ${resolvedPath}`
         );
         console.warn(
           `   This will create project files directly in your home directory.`

@@ -15,7 +15,7 @@ export function getTemplatePath(templateName: string, callerDir: string): string
   
   if (!cliPackageRoot) {
     throw new Error(
-      `Could not locate @hatchet-dev/pickaxe-cli package root from ${callerDir}. ` +
+      `Could not locate @hatchet-dev/icepick-cli package root from ${callerDir}. ` +
       `This is required for secure template resolution.`
     );
   }
@@ -55,7 +55,7 @@ function findCliPackageRoot(startDir: string): string | null {
       // Read and verify it's the CLI package
       const packageJson = JSON.parse(require('fs').readFileSync(packageJsonPath, 'utf8'));
       
-      if (packageJson.name === '@hatchet-dev/pickaxe-cli') {
+      if (packageJson.name === '@hatchet-dev/icepick-cli') {
         return currentDir;
       }
     } catch {
@@ -89,7 +89,7 @@ export async function getTemplatePathAsync(templateName: string, callerDir: stri
   
   if (!cliPackageRoot) {
     throw new Error(
-      `Could not locate @hatchet-dev/pickaxe-cli package root from ${callerDir}. ` +
+      `Could not locate @hatchet-dev/icepick-cli package root from ${callerDir}. ` +
       `This is required for secure template resolution.`
     );
   }
@@ -130,7 +130,7 @@ async function findCliPackageRootAsync(startDir: string): Promise<string | null>
       const packageJsonContent = await fs.readFile(packageJsonPath, 'utf8');
       const packageJson = JSON.parse(packageJsonContent);
       
-      if (packageJson.name === '@hatchet-dev/pickaxe-cli') {
+      if (packageJson.name === '@hatchet-dev/icepick-cli') {
         return currentDir;
       }
     } catch {

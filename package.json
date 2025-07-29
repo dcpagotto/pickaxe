@@ -1,5 +1,5 @@
 {
-  "name": "pickaxe-monorepo",
+  "name": "icepick-monorepo",
   "private": true,
   "workspaces": [
     "utils",

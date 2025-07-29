@@ -1,4 +1,4 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { safetyVoterTool } from "./tools/safety-voter.tool";
 import { helpfulnessVoterTool } from "./tools/helpfulness-voter.tool";
@@ -41,7 +41,7 @@ const VotingAgentOutput = z.object({
   votingSummary: z.string(),
 });
 
-export const votingAgent = pickaxe.agent({
+export const votingAgent = icepick.agent({
   name: "voting-agent",
   executionTimeout: "1m",
   inputSchema: VotingAgentInput,

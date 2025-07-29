@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { generateText as aiGenerateText } from "ai";
 import { openai } from "@ai-sdk/openai";
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 
 const WebsiteToMdxInputSchema = z.object({
   url: z.string().url(),
@@ -16,7 +16,7 @@ const WebsiteToMdxOutputSchema = z.object({
   markdown: z.string(),
 });
 
-export const websiteToMd = pickaxe.tool({
+export const websiteToMd = icepick.tool({
   name: "website-to-md",
   description: "Load a website by its url and convert it to Markdown",
   inputSchema: WebsiteToMdxInputSchema,

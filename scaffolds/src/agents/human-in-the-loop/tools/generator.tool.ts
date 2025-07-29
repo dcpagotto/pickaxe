@@ -1,8 +1,8 @@
-import { pickaxe } from "@/pickaxe-client";
+import { icepick } from "@/icepick-client";
 import z from "zod";
 import { generateText } from "ai";
 
-export const generatorTool = pickaxe.tool({
+export const generatorTool = icepick.tool({
   name: "generator-tool",
   description: "Generates a social media post",
   inputSchema: z.object({
@@ -16,7 +16,7 @@ export const generatorTool = pickaxe.tool({
   }),
   fn: async (input) => {
     const result = await generateText({
-      model: pickaxe.defaultLanguageModel,
+      model: icepick.defaultLanguageModel,
       prompt: `
         Generate a social media post for the following topic.
         This should be the detailed, substantive part of the response that directly addresses the user's query.
